@@ -36,8 +36,6 @@ jobs:
             else 
               echo "Plugin de sonarcloud ya está configurado en build.gradle"
             fi
-
-
           else
             echo "no se encontró archivo build.gradle"
             exit 1
@@ -54,7 +52,7 @@ jobs:
               "https://sonarcloud.io/api/projects/search?projects=$REPO_NAME")
 
             if [ "$response" -ne 200 ]; then
-              echo "El proyecto no existe. Creandolo en SonarCloud"
+              echo "El proyecto no existe. Creándolo en SonarCloud"
               create_response=(curl -s -w "%{http_code}" -o /dev/null -X POST -u "$SONAR_TOKEN:" \
               "https://sonarcloud.io/api/projects/create" \
               -d "name=$REPO_NAME" \
