@@ -26,7 +26,7 @@ jobs:
         run: |
           if [ -f "build.gradle" ]; then
             echo "Encontró el archivo"
-            echo "Verificando configuracion del plugin sonar"
+            echo "Verificando configuración del plugin sonar"
             if ! grep -q  'id "org.sonarqube" version "3.3"' build.gradle; then
               sed -i '/id '\''java'\''/a \ \ \ \ id '\''org.sonarqube'\'' version '\''3.3'\''' build.gradle
               echo "No se encuentra Plugin configurado"
